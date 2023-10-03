@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import './Home.css'
 
 function Home() {
   const [data, setData] = useState([]);
@@ -44,19 +44,34 @@ function Home() {
 
   return (
     <div>
-      <h1>Danh sách đối tượng</h1>
-      <input type="text" placeholder="Search" onChange={handleSearch} />
-      <ul>
+      <h1>Customer list</h1>
+      <input type="text" placeholder="Search" onChange={handleSearch}/>
+      <table>
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Actions</th>
+          </tr>
+        </thead>
+      <tbody>
         {filteredData.map((item) => (
-          <li key={item.id}>
-            {item.id} - {item.name} - {item.email} - {item.age}
-            <button><Link to={`/edit/${item.id}`} state={{ originalData: item }}>Chỉnh sửa</Link></button>
-            <button onClick={() => handleDelete(item.id)}>Xóa</button>
-            <button><Link to={`/read/${item.id}`}>More details</Link></button>
-          </li>
+          <tr key={item.id}>
+            <td>{item.id} </td> 
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.age}</td>
+            <td>
+            <button><Link to={`/edit/${item.id}`} state={{ originalData: item }}>Edit</Link></button>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
+            <button><Link to={`/read/${item.id}`}>View details</Link></button>
+            </td>
+          </tr>
         ))}
-      </ul>
-      <Link to="/add">Thêm mới</Link>
+      </tbody>
+      </table>
     </div>
   );
 }

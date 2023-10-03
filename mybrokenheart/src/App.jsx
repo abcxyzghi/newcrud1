@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from './components/Home'
-import Add from './components/Add'
-import Edit from "./components/Edit";
-import Read from "./components/Read";
+import Home from './components/Home/Home'
+import Add from './components/Add/Add'
+import Edit from "./components/Edit/Edit";
+import Read from "./components/Read/Read";
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
 //
@@ -20,6 +20,9 @@ export default function App() {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+          <Link to="/add">Add</Link>
           </li>
         </ul>
 

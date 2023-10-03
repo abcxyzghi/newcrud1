@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory, useParams, Link } from 'react-router-dom';
-
+import './Read.css'
 function Read() {
   const [customer, setCustomer] = useState({ 
     name: '', 

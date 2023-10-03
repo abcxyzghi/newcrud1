@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-
+import './Add.css'
 function Add() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
